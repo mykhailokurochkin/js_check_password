@@ -42,4 +42,8 @@ describe(`Function 'checkPassword':`, () => {
   it(`should return false for password without special character`, () => {
     expect(checkPassword('Password1')).toBe(false);
   });
+
+  it(`should return false for password with not allowed character`, () => {
+    expect(checkPassword('пароль1!')).toBe(false);
+  });
 });
