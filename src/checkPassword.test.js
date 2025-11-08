@@ -22,4 +22,24 @@ describe(`Function 'checkPassword':`, () => {
   it(`should return false for short mixed-case password with symbol`, () => {
     expect(checkPassword('Str@ng')).toBe(false);
   });
+
+  it(`should return false for too short`, () => {
+    expect(checkPassword('Str@')).toBe(false);
+  });
+
+  it(`should return false for too long`, () => {
+    expect(checkPassword('lkjdflihQ21kjfnaljk@')).toBe(false);
+  });
+
+  it(`should return false for password without digit`, () => {
+    expect(checkPassword('Password!!!')).toBe(false);
+  });
+
+  it(`should return false for password without uppercase letter`, () => {
+    expect(checkPassword('password1!')).toBe(false);
+  });
+
+  it(`should return false for password without special character`, () => {
+    expect(checkPassword('Password1')).toBe(false);
+  });
 });
